@@ -1,7 +1,5 @@
-name: Something went wrong
-description: ADE did something it should not have, or did not do something it should have.
-title: "[Bug] "
-labels: [bug]
+name: Tell us something
+description: Something broken, an idea, something about the window, a question -- anything about ADE.
 body:
   - type: markdown
     attributes:
@@ -9,23 +7,43 @@ body:
         Thank you for taking the time to tell us.
 
         **Before you write:** this page is public. Anyone can read what you put here, and a picture you attach is published the moment you submit. Please leave out anything secret (passwords, keys, private code) and anything about other people (their names, their email, their screens).
-  - type: textarea
-    id: what-happened
+  - type: dropdown
+    id: about
     attributes:
-      label: What happened?
-      description: In your own words. What did you see?
+      label: What is this about?
+      options:
+        - Something is broken (a bug)
+        - A feature request or an idea
+        - The window, its layout or its look
+        - A question
+        - Something else
     validations:
       required: true
+  - type: textarea
+    id: note
+    attributes:
+      label: What would you like to tell us?
+      description: In your own words. For something broken, what happened and what you saw; for an idea or the window, what you would like and what would have helped; for a question, the question.
+    validations:
+      required: true
+  - type: input
+    id: area
+    attributes:
+      label: Where in ADE? (optional)
+      description: The page, panel, button or command you mean, in your own words, if it is one place.
+      placeholder: For example, the Projects page, the search box at the top
+    validations:
+      required: false
   - type: textarea
     id: expected
     attributes:
-      label: What did you expect to happen instead?
+      label: What did you expect to happen instead? (for something broken)
     validations:
-      required: true
+      required: false
   - type: textarea
     id: steps
     attributes:
-      label: How can we see it ourselves?
+      label: How can we see it ourselves? (for something broken)
       description: The steps that lead to it, one per line, from the start if you can.
       placeholder: |
         1. Open ...
@@ -36,19 +54,19 @@ body:
   - type: dropdown
     id: how-often
     attributes:
-      label: How often does it happen?
+      label: How often does it happen? (for something broken)
       options:
         - Every time
         - Sometimes
         - Only once so far
         - Not sure
     validations:
-      required: true
+      required: false
   - type: textarea
     id: screenshot
     attributes:
       label: A picture of the screen (optional)
-      description: If a picture helps, drag it into this box or paste it here. Check first that it shows nothing secret and nobody else's details.
+      description: If a picture helps -- and for the window it often does -- drag it into this box or paste it here. Check first that it shows nothing secret and nobody else's details.
     validations:
       required: false
   - type: input
